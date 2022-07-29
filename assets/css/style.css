@@ -1,0 +1,12 @@
+html, body {
+    height: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+#find {
+    left: 50%;
+    top: 30%;
+}
