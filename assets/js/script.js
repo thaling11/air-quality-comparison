@@ -14,6 +14,7 @@
             
 //Function to display air quality data
 //Function to display the hospital information
+    //"If you are having dificulties breathing - here is the closest hospital to you"
 
 // Add information about poor air quality / images of smog
 
