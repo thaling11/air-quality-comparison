@@ -1,3 +1,26 @@
+// API key
+var APIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
+
+//use Geolocation API to get user location on entering site
+    const successCallback = (position) => {
+        console.log(position)
+    }
+
+    const errorCallback = (error) => {
+        console.log(error)
+    }
+
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+//current air quality element
+let airQualityConditions = $('#air-q');
+
+//get nearest city data (IP geolocation)
+// http://api.airvisual.com/v2/nearest_city?key={{YOUR_API_KEY}}
+
+//get nearest city data
+//http://api.airvisual.com/v2/nearest_city?lat={{LATITUDE}}&lon={{LONGITUDE}}&key={{YOUR_API_KEY}}
+
 // Event Listener to search Button
 // Event Listener to Hospitals
     // Event listener to current location
