@@ -1,19 +1,39 @@
 // API key
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
 
-//use Geolocation API to get user location on entering site
-    const successCallback = (position) => {
-        console.log(position)
-    }
-
-    const errorCallback = (error) => {
-        console.log(error)
-    }
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+let cityName;
 
 //current air quality element
-let airQualityConditions = $('#air-q');
+let airQualityConditions = document.querySelector("#air-q");
+
+//use Geolocation API to get user location on entering site
+function getGeolocation() {
+    if (navigator.geolocation) {
+        console.log('geolocation available');
+        navigator.geolocation.getCurrentPosition(function(position){
+            console.log(position);
+        });
+    }}
+    getGeolocation();
+    
+    //get nearest city data 
+    // let lat = coords.latitude;
+    // let long = coords.longitude;
+
+    function getAirQuality() {
+        let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
+        
+        fetch(requestUrl)
+        .then(function(response) {
+            return response.json()
+        }).then(function(data) {
+            
+            console.log(data);
+            
+            
+        })
+        return;
+    }
 
 //get nearest city data (IP geolocation)
 // http://api.airvisual.com/v2/nearest_city?key={{YOUR_API_KEY}}
@@ -72,6 +92,12 @@ function getHospitalData(){
 }
 
 
-search.addEventListener("click", getAirQuality);
+search.addEventListener("click", function(event) {
+    cityName = document.querySelector("#search-input").value
+    e = document.querySelector("#state-select");
+    stateValue = e.options[e.selectedIndex].value;
+    stateInput = e.options[e.selectedIndex].text;
+    getAirQuality();
+});
 
 hospitalFinder.addEventListener("click", getHospitalData);
