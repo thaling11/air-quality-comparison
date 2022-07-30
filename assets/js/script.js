@@ -79,11 +79,11 @@ let lon2;
 
 
 
-function getAirQuality(){
-    console.log ("Button Works");
-    // fetch
-    // postAirQuality();
-}
+// function getAirQuality(){
+//     console.log ("Button Works");
+//     // fetch
+//     // postAirQuality();
+// }
 
 function getHospitalData(){
     console.log ("This button works too!")
@@ -99,5 +99,6 @@ search.addEventListener("click", function(event) {
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
 });
+
 
 hospitalFinder.addEventListener("click", getHospitalData);
