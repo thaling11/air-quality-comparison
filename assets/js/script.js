@@ -1,5 +1,5 @@
 // API key
-var APIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
+var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
 
 //use Geolocation API to get user location on entering site
     const successCallback = (position) => {
@@ -35,9 +35,6 @@ let airQualityConditions = $('#air-q');
             //Need distance calculator from lats and longs
             //This function uses distance as the crow flies
             
-//Function to display air quality data
-//Function to display the hospital information
-    //"If you are having dificulties breathing - here is the closest hospital to you"
 
 // Add information about poor air quality / images of smog
 
@@ -74,40 +71,6 @@ function getHospitalData(){
     // postHospitalData();
 }
 
-
-function postAirQuality(){
-
-}
-
-function postHospitalData(){
-
-
-}
-
-// distance between browser location and nearest hospital
-function distance(){
-//function distance(lat1, lon1, lat2, lon2, unit) {
-            // 	if ((lat1 == lat2) && (lon1 == lon2)) {
-            // 		return 0;
-            // 	}
-            // 	else {
-            // 		var radlat1 = Math.PI * lat1/180;
-            // 		var radlat2 = Math.PI * lat2/180;
-            // 		var theta = lon1-lon2;
-            // 		var radtheta = Math.PI * theta/180;
-            // 		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-            // 		if (dist > 1) {
-            // 			dist = 1;
-            // 		}
-            // 		dist = Math.acos(dist);
-            // 		dist = dist * 180/Math.PI;
-            // 		dist = dist * 60 * 1.1515;
-            // 		if (unit=="K") { dist = dist * 1.609344 }
-            // 		if (unit=="N") { dist = dist * 0.8684 }
-            // 		return dist;
-            // 	}
-            // }
-}
 
 search.addEventListener("click", getAirQuality);
 
