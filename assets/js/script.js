@@ -91,9 +91,9 @@ let lon2;
 function getLocalAir(){
     
     console.log ("This button works too!")
-    let hosipitalURL = `http://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
+    let localURL = `http://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
 
-    fetch (hosipitalURL)
+    fetch (localURL)
     .then(function(response) {
         return response.json()
     }).then(function(data) {
