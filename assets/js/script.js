@@ -47,6 +47,13 @@ function getGeolocation() {
 // Set up Air quality API fetch based on search
 // Set up hosipital API  fetch
 // Use Local Storage *****
+function storeLocation() {
+    let cityName = document.querySelector("#search-input").value;
+    e = document.querySelector("#state-select");
+    stateValue = e.options[e.selectedIndex].value;
+    stateInput = e.options[e.selectedIndex].text;
+    localStorage.setItem(stateInput,JSON.stringify(cityName));
+}
 // Save search in local storage to then apply it to the find hospitals??
     // pull 3 closest hospitals initially
     // find closest hosptital
@@ -98,6 +105,7 @@ search.addEventListener("click", function(event) {
     stateValue = e.options[e.selectedIndex].value;
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
+    storeLocation();
 });
 
 
