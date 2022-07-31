@@ -109,4 +109,4 @@ search.addEventListener("click", function(event) {
 });
 
 
-hospitalFinder.addEventListener("click", getHospitalData);
+// hospitalFinder.addEventListener("click", getHospitalData);
