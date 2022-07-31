@@ -1,5 +1,6 @@
 // API key
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
+var airResults = document.getElementById("air-results");
 
 let cityName;
 
@@ -30,6 +31,8 @@ function getGeolocation() {
             
             console.log(data);
             
+            // airResults.textContent= `Air Quality: ${data.current.pollution.aqius}`;
+            // console.log(data.current.pollution.aqius);
             
         })
         return;
@@ -84,14 +87,6 @@ let lon1;
 let lat2;
 let lon2;
 
-
-
-// function getAirQuality(){
-//     console.log ("Button Works");
-//     // fetch
-//     // postAirQuality();
-// }
-
 function getHospitalData(){
     console.log ("This button works too!")
     // fetch
@@ -107,6 +102,3 @@ search.addEventListener("click", function(event) {
     getAirQuality();
     storeLocation();
 });
-
-
-// hospitalFinder.addEventListener("click", getHospitalData);
