@@ -1,5 +1,6 @@
 // API key
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
+var results = document.getElementsByClassName("air-results");
 
 let cityName;
 
@@ -30,6 +31,7 @@ function getGeolocation() {
             
             console.log(data);
             
+
             
         })
         return;
@@ -108,5 +110,4 @@ search.addEventListener("click", function(event) {
     storeLocation();
 });
 
-
-hospitalFinder.addEventListener("click", getHospitalData);
+// hospitalFinder.addEventListener("click", getHospitalData);
