@@ -14,29 +14,30 @@ function getGeolocation() {
         navigator.geolocation.getCurrentPosition(function(position){
             console.log(position);
         });
-    }}
-    getGeolocation();
-    
-    //get nearest city data 
-    // let lat = coords.latitude;
-    // let long = coords.longitude;
-
-    function getAirQuality() {
-        let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
-        
-        fetch(requestUrl)
-        .then(function(response) {
-            return response.json()
-        }).then(function(data) {
-            
-            console.log(data);
-            
-            // airResults.textContent= `Air Quality: ${data.current.pollution.aqius}`;
-            // console.log(data.current.pollution.aqius);
-            
-        })
-        return;
     }
+}
+getGeolocation();
+    
+//get nearest city data 
+// let lat = coords.latitude;
+// let long = coords.longitude;
+
+function getAirQuality() {
+    let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
+    
+    fetch(requestUrl)
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        
+        console.log(data);
+        
+        // airResults.textContent= `Air Quality: ${data.current.pollution.aqius}`;
+        // console.log(data.current.pollution.aqius);
+        
+    })
+    return;
+}
 
 //get nearest city data (IP geolocation)
 // http://api.airvisual.com/v2/nearest_city?key={{YOUR_API_KEY}}
@@ -87,10 +88,18 @@ let lon1;
 let lat2;
 let lon2;
 
-function getHospitalData(){
+function getLocalAir(){
+    
     console.log ("This button works too!")
-    // fetch
-    // postHospitalData();
+    let localURL = `http://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
+
+    fetch (localURL)
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        
+        console.log(data);
+    })
 }
 
 
@@ -100,5 +109,6 @@ search.addEventListener("click", function(event) {
     stateValue = e.options[e.selectedIndex].value;
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
+    getLocalAir();
     storeLocation();
 });
