@@ -116,5 +116,3 @@ search.addEventListener("click", function(event) {
     // getLife();
     
 });
-
-

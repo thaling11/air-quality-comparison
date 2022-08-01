@@ -1,60 +1,71 @@
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
-body{
-    background-color: rgba(130, 167, 167, 0.827);
+body {
+  background-color: rgba(130, 167, 167, 0.827);
 }
 
 hr {
-    background-color: rgba(0, 0, 0, 0.378);
+  background-color: rgba(0, 0, 0, 0.378);
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .table {
-    background: none;
-    margin: 2%;
+  background: none;
+  margin: 2%;
   margin-left: 14%;
 }
 
 .results-title {
-    padding-top: 2%;
+  padding-top: 2%;
+}
+
+.teleport-widget-link {
+  margin: 10%;
+  padding-bottom: 5%;
+}
+
+#state-select {
+  margin: 1.5%;
+  margin-left: 13%;
 }
 
 #search-input {
-    margin-top: 2%;
-   padding-left: 50%;
+  margin-top: 2%;
+  padding-left: 47%;
 }
 
 #check {
-    margin-left: 50%;
-    margin-top: 2%;
-    background: lightgrey;
+  margin-left: 47%;
+  margin-top: 2%;
+  background: lightgrey;
 }
 
 #good {
-    color: green;
+  color: green;
 }
 
 #moderate {
-    color: yellow;
+  color: yellow;
 }
 
 #sensitive {
-    color: rgb(217, 145, 10);
+  color: rgb(217, 145, 10);
 }
 
 #unhealthy {
-    color:orangered
+  color: orangered;
 }
 
 #very-unhealthy {
-    color: rgb(143, 8, 66);
+  color: rgb(143, 8, 66);
 }
 
 #hazardous {
-    color: rgb(90, 7, 43);
+  color: rgb(90, 7, 43);
 }
