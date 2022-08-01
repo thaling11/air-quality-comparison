@@ -32,8 +32,8 @@ function getAirQuality() {
         
         console.log(data);
         
-        // airResults.textContent= `Air Quality: ${data.current.pollution.aqius}`;
-        // console.log(data.current.pollution.aqius);
+        airResults.textContent= `Air Quality: ${data.data.current.pollution.aqius}`;
+        console.log(data.data.current.pollution.aqius);
         
     })
     return;
@@ -103,7 +103,7 @@ function getLocalAir(){
 }
 
 
-search.addEventListener("click", function(event) {
+    search.addEventListener("click", function(event) {
     cityName = document.querySelector("#search-input").value
     e = document.querySelector("#state-select");
     stateValue = e.options[e.selectedIndex].value;

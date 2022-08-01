@@ -3,20 +3,20 @@
     //"If you are having dificulties breathing - here is the closest hospital to you"
 
     //hospital data inputs
-let nameOne = document.querySelector(".name1");
-let distanceOne = document.querySelector(".distance1")
-let contactOne = document.querySelector(".contact1");
-let nameTwo = document.querySelector(".name2");
-let distanceTwo = document.querySelector(".distance2")
-let contactTwo = document.querySelector(".contact2");
-let nameThree = document.querySelector(".name3");
-let distanceThree = document.querySelector(".distance3")
-let contactThree = document.querySelector(".contact3");
+// let nameOne = document.querySelector(".name1");
+// let distanceOne = document.querySelector(".distance1")
+// let contactOne = document.querySelector(".contact1");
+// let nameTwo = document.querySelector(".name2");
+// let distanceTwo = document.querySelector(".distance2")
+// let contactTwo = document.querySelector(".contact2");
+// let nameThree = document.querySelector(".name3");
+// let distanceThree = document.querySelector(".distance3")
+// let contactThree = document.querySelector(".contact3");
 //location data
-let lat1;
-let lon1;
-let lat2;
-let lon2;
+// let lat1;
+// let lon1;
+// let lat2;
+// let lon2;
 
 function postAirQuality(){
 
