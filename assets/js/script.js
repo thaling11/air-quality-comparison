@@ -30,9 +30,15 @@ function getGeolocation() {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(function(position){
             console.log(position);
+            lat1 = position.geoLocationPosition.coords.latitude;
+            lon1 = position.geolocationPosition.coords.longitude;
         });
+
     }
+   
+    
 };
+
 getGeolocation();
 
 function getAirQuality() {
@@ -43,7 +49,7 @@ function getAirQuality() {
         return response.json()
     }).then(function(data) {
         storeAir(data);
-        
+        console.log(data);
         return (data);       
     })
     return;
@@ -53,14 +59,20 @@ function getAirQuality() {
 function storeAir(data) {
     let aqius = data.data.current.pollution.aqius;
     let mainus = data.data.current.pollution.mainus;
+    lon2 = data.data.location.coordinates[0];
+    lat2 = data.data.location.coordinates[1];
 
     let currentCityScore = {
         city: cityName,
         aqi: aqius,
-        main: mainus
+        main: mainus,
+        lon2,
+        lat2
     };
     localStorage.setItem("searchedCity", JSON.stringify(currentCityScore));
-    window.location.href = "./results.html";
+    getGreenhouseInfo();
+    getGreenhouseInfoLocal();
+    // window.location.href = "./results.html";
 };
 
 
@@ -83,26 +95,58 @@ function getLocalAir(){
 function storeLocalAir(data2) {
     let aqius = data2.data.current.pollution.aqius;
     let mainus = data2.data.current.pollution.mainus;
+    lon1 = data2.data.location.coordinates[0]
+    lat1 = data2.data.location.coordinates[1];
 
     let currentCityScore = {
         city: data2.data.city,
         aqi: aqius,
-        main: mainus
+        main: mainus,
+        lon1,
+        lat1
     };
     localStorage.setItem("localCity", JSON.stringify(currentCityScore)); 
 };
 
-// function getLife(){
-//     let lifeURL = `https://api.teleport.org/api/urban_areas/slug:lakewood/`
-//     fetch (lifeURL)
-//     .then(function(response) {
-//         return response.json()
-//     }).then(function(data) {
-        
-//         console.log(data);
-//     })
 
-// }
+function getGreenhouseInfo() {
+    console.log(lat2);
+    console.log(lon2);
+    fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat2}&lng=${lon2}`, {
+        "method": "GET",
+        "headers": {
+            "x-api-key": "fbca53ae9f526d76e4d68cd72d51e83aded8b5b0000ae8b3cc47de6a5521c541",
+            "Content-type": "application/json"
+        }
+    })
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log(data);
+
+        return (data);
+    })
+};
+
+function getGreenhouseInfoLocal() {
+    console.log(lat1);
+    console.log(lon1);
+    fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat1}&lng=${lon1}`, {
+        "method": "GET",
+        "headers": {
+            "x-api-key": "fbca53ae9f526d76e4d68cd72d51e83aded8b5b0000ae8b3cc47de6a5521c541",
+            "Content-type": "application/json"
+        }
+    })
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log(data);
+
+        return (data);
+    })
+};
+
 
 // event listener on search button
 search.addEventListener("click", function(event) {
@@ -112,5 +156,5 @@ search.addEventListener("click", function(event) {
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
     getLocalAir();
-    // getLife();
+    
 });
