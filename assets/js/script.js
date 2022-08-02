@@ -1,6 +1,5 @@
 // API key
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
-var airResults = document.getElementById("air-results");
 //buttons
 let search = document.querySelector("#check");
 let hospitalFinder = document.querySelector("#find");
@@ -20,7 +19,7 @@ let lon1;
 let lat2;
 let lon2;
 
-let cityName;
+var cityName;
 
 //current air quality element
 let airQualityConditions = document.querySelector("#air-q");
@@ -31,12 +30,16 @@ function getGeolocation() {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(function(position){
             console.log(position);
+            lat1 = position.geoLocationPosition.coords.latitude;
+            lon1 = position.geolocationPosition.coords.longitude;
         });
-    }
-};
-getGeolocation();
-    
 
+    }
+   
+    
+};
+
+getGeolocation();
 
 function getAirQuality() {
     let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
@@ -60,13 +63,15 @@ function storeAir(data) {
     lat2 = data.data.location.coordinates[1];
 
     let currentCityScore = {
+        city: cityName,
         aqi: aqius,
         main: mainus,
         lon2,
         lat2
     };
-    localStorage.setItem(cityName, JSON.stringify(currentCityScore));
+    localStorage.setItem("searchedCity", JSON.stringify(currentCityScore));
     getGreenhouseInfo();
+    getGreenhouseInfoLocal();
     // window.location.href = "./results.html";
 };
 
@@ -94,12 +99,13 @@ function storeLocalAir(data2) {
     lat1 = data2.data.location.coordinates[1];
 
     let currentCityScore = {
+        city: data2.data.city,
         aqi: aqius,
         main: mainus,
         lon1,
         lat1
     };
-    localStorage.setItem(data2.data.city, JSON.stringify(currentCityScore));
+    localStorage.setItem(localCity, JSON.stringify(currentCityScore)); 
 };
 
 
@@ -122,6 +128,24 @@ function getGreenhouseInfo() {
     })
 };
 
+function getGreenhouseInfoLocal() {
+    console.log(lat1);
+    console.log(lon1);
+    fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat1}&lng=${lon1}`, {
+        "method": "GET",
+        "headers": {
+            "x-api-key": "fbca53ae9f526d76e4d68cd72d51e83aded8b5b0000ae8b3cc47de6a5521c541",
+            "Content-type": "application/json"
+        }
+    })
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log(data);
+
+        return (data);
+    })
+};
 
 
 // event listener on search button
@@ -132,6 +156,5 @@ search.addEventListener("click", function(event) {
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
     getLocalAir();
-    
     
 });

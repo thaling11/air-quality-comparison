@@ -18,8 +18,14 @@
 // let lat2;
 // let lon2;
 
-function postAirQuality(){
+var airResults = document.getElementById("air-results");
+var aqiResult = document.getElementById("aqi-results")
 
+function searchPostAirQuality(){
+    var postAirq = JSON.parse(localStorage.getItem("searchedCity"));
+    console.log(postAirq);
+    airResults.textContent = postAirq.city;
+    aqiResult.textContent = postAirq.aqi;
 }
 
 function postHospitalData(){
@@ -51,3 +57,5 @@ function distance(){
             // 	}
             // }
 }
+
+searchPostAirQuality()
