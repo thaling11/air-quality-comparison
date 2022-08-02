@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Hospital Finder/Air Quality</title>
   </head>
-    <body>
-      <section class="section">
+  <body>
+    <section class="section">
       <div class="container">
         <h1 class="title">Air Quality Data</h1>
         <p class="subtitle">
@@ -76,25 +76,15 @@
         <option value="WY">Wyoming</option>
       </select>
       <input
-      class="input is-rounded"
-      id="search-input"
-      type="text"
-      placeholder="Search City"
+        class="input is-rounded"
+        id="search-input"
+        type="text"
+        placeholder="Search City"
       />
-      <a href="./results.html"><button class="button is-light btn" id="check">Get Data</button></a>
+      <button class="button is-light btn" id="check">Get Data</button>
     </section>
-    <a class="teleport-widget-link" href="https://teleport.org/cities/aarhus/"
-      >Life quality score - Aarhus</a
-    >
-    <script
-      async
-      class="teleport-widget-script"
-      data-url="https://teleport.org/cities/aarhus/widget/scores/?currency=USD"
-      data-max-width="770"
-      data-height="969"
-      src="https://teleport.org/assets/firefly/widget-snippet.min.js"
-    ></script>
+
+    <script type="text/javascript" src="./assets/js/connect.js"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
   </body>
-  </html>
-  
+</html>
