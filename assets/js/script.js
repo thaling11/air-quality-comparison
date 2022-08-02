@@ -46,7 +46,7 @@ function getAirQuality() {
         return response.json()
     }).then(function(data) {
         storeAir(data);
-        
+        console.log(data);
         return (data);       
     })
     return;
@@ -56,12 +56,18 @@ function getAirQuality() {
 function storeAir(data) {
     let aqius = data.data.current.pollution.aqius;
     let mainus = data.data.current.pollution.mainus;
+    lon2 = data.data.location.coordinates[0];
+    lat2 = data.data.location.coordinates[1];
 
     let currentCityScore = {
         aqi: aqius,
-        main: mainus
+        main: mainus,
+        lon2,
+        lat2
     };
     localStorage.setItem(cityName, JSON.stringify(currentCityScore));
+    getGreenhouseInfo();
+    // window.location.href = "./results.html";
 };
 
 
@@ -84,25 +90,38 @@ function getLocalAir(){
 function storeLocalAir(data2) {
     let aqius = data2.data.current.pollution.aqius;
     let mainus = data2.data.current.pollution.mainus;
+    lon1 = data2.data.location.coordinates[0]
+    lat1 = data2.data.location.coordinates[1];
 
     let currentCityScore = {
         aqi: aqius,
-        main: mainus
+        main: mainus,
+        lon1,
+        lat1
     };
     localStorage.setItem(data2.data.city, JSON.stringify(currentCityScore));
 };
 
-// function getLife(){
-//     let lifeURL = 'https://api.teleport.org/apicities/?search=Palo%20Alto%2C%20California&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurbanarea%2Fua%3Ascores'
-//     fetch (lifeURL)
-//     .then(function(response) {
-//         return response.json()
-//     }).then(function(data) {
-        
-//         console.log(data);
-//     })
 
-// }
+function getGreenhouseInfo() {
+    console.log(lat2);
+    console.log(lon2);
+    fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat2}&lng=${lon2}`, {
+        "method": "GET",
+        "headers": {
+            "x-api-key": "fbca53ae9f526d76e4d68cd72d51e83aded8b5b0000ae8b3cc47de6a5521c541",
+            "Content-type": "application/json"
+        }
+    })
+    .then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log(data);
+
+        return (data);
+    })
+};
+
 
 
 // event listener on search button
@@ -113,6 +132,6 @@ search.addEventListener("click", function(event) {
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
     getLocalAir();
-    // getLife();
+    
     
 });
