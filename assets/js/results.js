@@ -19,13 +19,22 @@
 // let lon2;
 
 var airResults = document.getElementById("air-results");
-var aqiResult = document.getElementById("aqi-results")
+var aqiResult = document.getElementById("aqi-results");
+var local = document.getElementById("local-results");
+var localAirResults = document.getElementById("local-aqi");
 
-function searchPostAirQuality(){
+function searchAirQuality(){
     var postAirq = JSON.parse(localStorage.getItem("searchedCity"));
     console.log(postAirq);
-    airResults.textContent = postAirq.city;
-    aqiResult.textContent = postAirq.aqi;
+    airResults.textContent = `City: ${postAirq.city}`;
+    aqiResult.textContent = `Current Air Quality: ${postAirq.aqi}`;
+}
+
+function searchLocalAirQuality(){
+    var localAirq = JSON.parse(localStorage.getItem("localCity"));
+    console.log(localAirq);
+    local.textContent = `City: ${localAirq.city}`;
+    localAirResults.textContent = `Current Air Quality: ${localAirq.aqi}`;
 }
 
 function postHospitalData(){
@@ -58,4 +67,5 @@ function distance(){
             // }
 }
 
-searchPostAirQuality()
+searchAirQuality()
+searchLocalAirQuality()
