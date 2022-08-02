@@ -1,6 +1,5 @@
 // API key
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
-var airResults = document.getElementById("air-results");
 //buttons
 let search = document.querySelector("#check");
 let hospitalFinder = document.querySelector("#find");
@@ -20,7 +19,7 @@ let lon1;
 let lat2;
 let lon2;
 
-let cityName;
+var cityName;
 
 //current air quality element
 let airQualityConditions = document.querySelector("#air-q");
@@ -33,10 +32,8 @@ function getGeolocation() {
             console.log(position);
         });
     }
-}
+};
 getGeolocation();
-    
-
 
 function getAirQuality() {
     let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
@@ -50,7 +47,7 @@ function getAirQuality() {
         return (data);       
     })
     return;
-}
+};
 
 // store air quality in local storage
 function storeAir(data) {
@@ -58,10 +55,12 @@ function storeAir(data) {
     let mainus = data.data.current.pollution.mainus;
 
     let currentCityScore = {
+        city: cityName,
         aqi: aqius,
         main: mainus
     };
-    localStorage.setItem(cityName, JSON.stringify(currentCityScore));
+    localStorage.setItem("searchedCity", JSON.stringify(currentCityScore));
+    window.location.href = "./results.html";
 };
 
 
@@ -78,7 +77,7 @@ function getLocalAir(){
         storeLocalAir(data2);
         return (data2);
     })
-}
+};
 
 //Store local air quality in local storage
 function storeLocalAir(data2) {
@@ -86,14 +85,15 @@ function storeLocalAir(data2) {
     let mainus = data2.data.current.pollution.mainus;
 
     let currentCityScore = {
+        city: data2.data.city,
         aqi: aqius,
         main: mainus
     };
-    localStorage.setItem(data2.data.city, JSON.stringify(currentCityScore));
+    localStorage.setItem(localCity, JSON.stringify(currentCityScore)); 
 };
 
 // function getLife(){
-//     let lifeURL = 'https://api.teleport.org/apicities/?search=Palo%20Alto%2C%20California&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurbanarea%2Fua%3Ascores'
+//     let lifeURL = `https://api.teleport.org/api/urban_areas/slug:lakewood/`
 //     fetch (lifeURL)
 //     .then(function(response) {
 //         return response.json()
@@ -104,7 +104,6 @@ function storeLocalAir(data2) {
 
 // }
 
-
 // event listener on search button
 search.addEventListener("click", function(event) {
     cityName = document.querySelector("#search-input").value
@@ -114,5 +113,4 @@ search.addEventListener("click", function(event) {
     getAirQuality();
     getLocalAir();
     // getLife();
-    
 });
