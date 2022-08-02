@@ -30,8 +30,8 @@ function getGeolocation() {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(function(position){
             console.log(position);
-            lat1 = position.geoLocationPosition.coords.latitude;
-            lon1 = position.geolocationPosition.coords.longitude;
+            lat1 = position.coords.latitude;
+            lon1 = position.coords.longitude;
         });
 
     }
