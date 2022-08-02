@@ -89,7 +89,7 @@ function storeLocalAir(data2) {
         aqi: aqius,
         main: mainus
     };
-    localStorage.setItem(localCity, JSON.stringify(currentCityScore)); 
+    localStorage.setItem("localCity", JSON.stringify(currentCityScore)); 
 };
 
 // function getLife(){
