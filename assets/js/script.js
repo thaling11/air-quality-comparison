@@ -105,7 +105,7 @@ function storeLocalAir(data2) {
         lon1,
         lat1
     };
-    localStorage.setItem(localCity, JSON.stringify(currentCityScore)); 
+    localStorage.setItem("localCity", JSON.stringify(currentCityScore)); 
 };
 
 
