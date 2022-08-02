@@ -22,6 +22,8 @@ var airResults = document.getElementById("air-results");
 var aqiResult = document.getElementById("aqi-results");
 var local = document.getElementById("local-results");
 var localAirResults = document.getElementById("local-aqi");
+var greenHouseGasResults = document.getElementById("greenhouse-results")
+var localGHG = document.getElementById("local-ghg-results")
 
 function searchAirQuality(){
     var postAirq = JSON.parse(localStorage.getItem("searchedCity"));
@@ -37,9 +39,16 @@ function searchLocalAirQuality(){
     localAirResults.textContent = `Current Air Quality: ${localAirq.aqi}`;
 }
 
-function postHospitalData(){
+function postGreenHouseGasData(){
+    var postGHG = JSON.parse(localStorage.getItem("searchedCity"));
+    console.log(postGHG);
+    greenHouseGasResults.textContent = `Current Greenhouse Gases: ${postGHG.data[0]}`;
+}
 
-
+function postGHGLocal(){
+    var postGHGLocal = JSON.parse(localStorage.getItem("localCity"));
+    console.log(postGHGLocal);
+    localGHG.textContent = `Current Greenhouse Gases Locally: ${postGHGLocal.data[0]}`;
 }
 
 // distance between browser location and nearest hospital
@@ -69,3 +78,4 @@ function distance(){
 
 searchAirQuality()
 searchLocalAirQuality()
+postGreenHouseGasData()
