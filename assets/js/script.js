@@ -33,7 +33,7 @@ function getGeolocation() {
             console.log(position);
         });
     }
-}
+};
 getGeolocation();
     
 
@@ -50,7 +50,7 @@ function getAirQuality() {
         return (data);       
     })
     return;
-}
+};
 
 // store air quality in local storage
 function storeAir(data) {
@@ -78,7 +78,7 @@ function getLocalAir(){
         storeLocalAir(data2);
         return (data2);
     })
-}
+};
 
 //Store local air quality in local storage
 function storeLocalAir(data2) {
