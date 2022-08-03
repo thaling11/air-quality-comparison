@@ -1,3 +1,4 @@
+// Variables to put text from storage
 var airResults = document.getElementById("air-results");
 var aqiResult = document.getElementById("aqi-results");
 var local = document.getElementById("local-results");
@@ -11,21 +12,23 @@ var ch4Local = document.getElementById("local-ch4");
 var ozoneLocal = document.getElementById("local-ozone");
 var vaporLocal = document.getElementById("local-vapor");
 
+// Post searched air quality
 function searchAirQuality(){
     var postAirq = JSON.parse(localStorage.getItem("searchedCity"));
     console.log(postAirq);
     airResults.textContent = `Searched City: ${postAirq.city}`;
     aqiResult.textContent = `Searched City Air Quality: ${postAirq.aqi}`;
-}
+};
 
+// Post local air quality
 function searchLocalAirQuality(){
     var localAirq = JSON.parse(localStorage.getItem("localCity"));
     console.log(localAirq);
     local.textContent = `Local City: ${localAirq.city}`;
     localAirResults.textContent = `Local Air Quality: ${localAirq.aqi}`;
-}
+};
 
-
+// Post searched green house gas data
 function postGreenHouseGasData(){
     var postGHG = JSON.parse(localStorage.getItem("searchedGreenhouse"));
     console.log(postGHG);
@@ -35,6 +38,7 @@ function postGreenHouseGasData(){
     vaporSearched.textContent = `Searched Water Vapor Concentration: ${postGHG.water_vapor} cm`;
 };
 
+// Post local green house gas data
 function postGHGLocal(){
     var postGHGLocal = JSON.parse(localStorage.getItem("localGreenhouse"));
     console.log(postGHGLocal);
@@ -44,7 +48,7 @@ function postGHGLocal(){
     vaporLocal.textContent = `Local Water Vapor Concentration: ${postGHGLocal.water_vapor} cm`;
 };
 
-searchAirQuality()
-searchLocalAirQuality()
-postGreenHouseGasData()
-postGHGLocal()
+searchAirQuality();
+searchLocalAirQuality();
+postGreenHouseGasData();
+postGHGLocal();
