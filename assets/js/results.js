@@ -28,25 +28,25 @@ var localGHG = document.getElementById("local-ghg-results")
 function searchAirQuality(){
     var postAirq = JSON.parse(localStorage.getItem("searchedCity"));
     console.log(postAirq);
-    airResults.textContent = `City: ${postAirq.city}`;
-    aqiResult.textContent = `Current Air Quality: ${postAirq.aqi}`;
+    airResults.textContent = `Searched City: ${postAirq.city}`;
+    aqiResult.textContent = `Searched City Air Quality: ${postAirq.aqi}`;
 }
 
 function searchLocalAirQuality(){
     var localAirq = JSON.parse(localStorage.getItem("localCity"));
     console.log(localAirq);
-    local.textContent = `City: ${localAirq.city}`;
-    localAirResults.textContent = `Current Air Quality: ${localAirq.aqi}`;
+    local.textContent = `Local City: ${localAirq.city}`;
+    localAirResults.textContent = `Local Air Quality: ${localAirq.aqi}`;
 }
 
 function postGreenHouseGasData(){
-    var postGHG = JSON.parse(localStorage.getItem("searchedCity"));
+    var postGHG = JSON.parse(localStorage.getItem("searchedGreenhouse"));
     console.log(postGHG);
     greenHouseGasResults.textContent = `Current Greenhouse Gases: ${postGHG.data[0]}`;
 }
 
 function postGHGLocal(){
-    var postGHGLocal = JSON.parse(localStorage.getItem("localCity"));
+    var postGHGLocal = JSON.parse(localStorage.getItem("localGreenhouse"));
     console.log(postGHGLocal);
     localGHG.textContent = `Current Greenhouse Gases Locally: ${postGHGLocal.data[0]}`;
 }

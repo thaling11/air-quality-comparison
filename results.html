@@ -9,42 +9,54 @@
     href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
   />
   <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Hospital Finder/Air Quality</title>
+    <title>Air Quality Comparison</title>
 </head>
 <body>
     <section class="section-air">
         <div class="container">
-            <h1 class="title results-title">Air Quality Data:</h1>
+            <h1 class="title results-title">Air Quality/ Greenhouse Gas Data:</h1>
         <div class="air-results" id="air-results"></div>
         <div id="aqi-results"></div>
+        <div id="greenhouse-results"></div>
+        <br>
         <div id="local-results"></div>
         <div id="local-aqi"></div>
+        <div id="local-ghg-results"></div>
+    
         <br>
             <p class="subtitle">US Air Quality Index(AQI):
                 <br>
                 <p>
-                0-50 = <span id="good">Good</span>
+                <span id="good">0-50</span> = Good
                 <br>
-                51-100 = <span id="moderate">Moderate</span>
+                <span id="moderate">51-100</span> = Moderate
                 <br>
-                101-150 = <span id="sensitive">Unhealthy for sensitive groups</span>
+                <span id="sensitive">101-150</span> = Unhealthy for sensitive groups
                 <br>
-                151-200 = <span id="unhealthy">Unhealthy</span>
+                <span id="unhealthy">151-200</span> = Unhealthy
                 <br>
-                201-300 = <span id="very-unhealthy">Very unhealthy</span>
+                <span id="very-unhealthy">201-300</span> = Very unhealthy
                 <br>
-                301+ = <span id="hazardous">Hazardous</span>    
+                <span id="hazardous">301+</span> = Hazardous    
                 </p>
                 <br>
             </p>
-        </div>
-    </section>
-    <hr>
-    <section class="section-greenhouse">
-        <div class="container">
-          <h1>Greenhouse Gases Data:</h1>
-          <div class="greenhouse-results" id="greenhouse-results"></div>
-          <div id="local-ghg-results"></div>
+            <br>
+            <p class="subtitle">CO² Levels Impact On The Human Body:
+                <br>
+                <p>
+                    <span id="green">400 ppm</span> = Normal outdoor air Level
+                    <br>
+                    <span id="orange">1000-2000 ppm</span> = Level is associated with complaints of drowsiness and poor air
+                    <br>
+                    <span id="mid-orange">2000-5000 ppm</span> = Level is associated with headaches, sleepiness and loss of concentration
+                    <br>
+                    <span id="dark-orange">5000 ppm</span> = Permissible exposure limit for daily workplace exposures
+                    <br>
+                    <span id="red">>40000 ppm</span> = Level is immediately harmful due to Oygen deprivation
+                </p>
+                
+            </p>
         </div>
     </section>
 
