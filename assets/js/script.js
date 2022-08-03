@@ -113,8 +113,7 @@ function getGreenhouseInfo() {
         console.log(data);
         storeSearchedGas(data);
         return (data);
-    })
-   
+    })  
 };
 
 // store Greenhouse searched Data
@@ -167,9 +166,9 @@ function storeLocalGas(data){
         ozone: ozoneSearched,
         ch4: ch4Searched,
         water_vapor: waterVaporSearched
-    }
+    };
     localStorage.setItem("localGreenhouse", JSON.stringify(localGas));
-}
+};
 
 
 // event listener on search button starts function calls
@@ -180,5 +179,4 @@ search.addEventListener("click", function(event) {
     stateInput = e.options[e.selectedIndex].text;
     getAirQuality();
     getLocalAir();
-    
 });
