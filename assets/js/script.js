@@ -170,7 +170,6 @@ function storeLocalGas(data){
     localStorage.setItem("localGreenhouse", JSON.stringify(localGas));
 };
 
-
 // event listener on search button starts function calls
 search.addEventListener("click", function(event) {
     cityName = document.querySelector("#search-input").value
