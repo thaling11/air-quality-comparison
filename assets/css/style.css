@@ -2,8 +2,15 @@ html,
 body {
   height: 100%;
 }
-
 body {
+  background-color: rgba(130, 167, 167, 0.827);
+}
+
+hr {
+  background-color: rgba(0, 0, 0, 0.378);
+}
+
+.index-body {
   background-color: rgba(130, 167, 167, 0.827);
   background-image: url(../img/Fanhe_Town_10_day_interval_contrast.png);
   background-size: contain;
@@ -12,8 +19,9 @@ body {
   background-color: rgba(130, 167, 167, 0.827);
 }
 
-hr {
-  background-color: rgba(0, 0, 0, 0.378);
+#home{
+  margin-left: 90%;
+  margin-top:2%;
 }
 
 .hide {

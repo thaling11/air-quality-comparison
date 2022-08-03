@@ -11,6 +11,7 @@ var co2Local = document.getElementById("local-co2");
 var ch4Local = document.getElementById("local-ch4");
 var ozoneLocal = document.getElementById("local-ozone");
 var vaporLocal = document.getElementById("local-vapor");
+var homeBtn = document.getElementById("home");
 
 // Post searched air quality
 function searchAirQuality(){
@@ -47,6 +48,10 @@ function postGHGLocal(){
     ozoneLocal.textContent = `Local Ozone Concentration: ${postGHGLocal.ozone} mol/cm²`;
     vaporLocal.textContent = `Local Water Vapor Concentration: ${postGHGLocal.water_vapor} cm`;
 };
+
+homeBtn.addEventListener("click", function(){
+    window.location.href = "./index.html";
+});
 
 searchAirQuality();
 searchLocalAirQuality();
