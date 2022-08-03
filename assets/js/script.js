@@ -132,7 +132,7 @@ function storeSearchedGas(data){
     }
     localStorage.setItem("searchedGreenhouse", JSON.stringify(searchedGas));
     // Change html after data is saved
-    // window.location.href = "./results.html";
+    window.location.href = "./results.html";
 };
 
 // API for local greenhouse gas data
@@ -155,7 +155,7 @@ function getGreenhouseInfoLocal() {
     })
 };
 
-// store loca greenhouse data to local storage
+// store local greenhouse data to local storage
 function storeLocalGas(data){
     let co2Searched = data.data[0].co2.value;
     let ozoneSearched = data.data[0].ozone.value;
