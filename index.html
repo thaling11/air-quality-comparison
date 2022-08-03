@@ -14,14 +14,20 @@
   <body>
     <section class="section">
       <div class="container">
-        <h1 class="title">Air Quality/ Greenhouse Gas Data</h1>
-        <p class="subtitle">
-          Find your local Air Quality/ Greenhouse Gas <strong>data</strong>!
+        <h1 class="title" id="index-title">Air Quality/ Greenhouse Gas Data</h1>
+        <p class="subtitle" id="index-subtitle">
+          Compare your Local Air Quality/ Greenhouse Gas Data to a chosen <strong>city</strong>!
         </p>
       </div>
       <div class="columns">
         <div class="air-q" id="air-q"></div>
       </div>
+      <input
+      size="30"
+      id="search-input"
+      type="text"
+      placeholder="Search City"
+    />
       <select name="state" size="1" id="state-select">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
@@ -75,12 +81,7 @@
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-      <input
-        class="input is-rounded"
-        id="search-input"
-        type="text"
-        placeholder="Search City"
-      />
+  
       <button class="button is-light btn" id="check">Get Data</button>
     </section>
     
