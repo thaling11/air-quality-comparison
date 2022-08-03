@@ -30,7 +30,7 @@ getGeolocation();
 
 // API fetch for searched air quality data
 function getAirQuality() {
-    let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
+    let requestUrl = `https://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
     
     fetch(requestUrl)
     .then(function(response) {
@@ -67,7 +67,7 @@ function storeAir(data) {
 //API fetch for local air quality data
 function getLocalAir(){
     
-    let localURL = `http://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
+    let localURL = `https://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
 
     fetch (localURL)
     .then(function(response) {
