@@ -72,7 +72,7 @@ function storeAir(data) {
     localStorage.setItem("searchedCity", JSON.stringify(currentCityScore));
     getGreenhouseInfo();
     getGreenhouseInfoLocal();
-    // window.location.href = "./results.html";
+    window.location.href = "./results.html";
 };
 
 
