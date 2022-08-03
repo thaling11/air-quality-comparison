@@ -30,6 +30,17 @@ hr {
   padding-bottom: 5%;
 }
 
+.subtitle {
+  text-decoration: underline;
+}
+
+#air-results {
+  font-weight: bold;
+}
+
+#local-results {
+  font-weight: bold;
+}
 #state-select {
   margin: 1.5%;
   margin-left: 13%;
