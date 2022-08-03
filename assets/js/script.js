@@ -131,7 +131,7 @@ function storeSearchedGas(data){
     }
     localStorage.setItem("searchedGreenhouse", JSON.stringify(searchedGas));
     // Change html after data is saved
-    // window.location.href = "./results.html";
+    window.location.href = "./results.html";
 };
 
 // API for local greenhouse gas data
