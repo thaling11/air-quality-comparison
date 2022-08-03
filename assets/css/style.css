@@ -5,6 +5,11 @@ body {
 
 body {
   background-color: rgba(130, 167, 167, 0.827);
+  background-image: url(../img/Fanhe_Town_10_day_interval_contrast.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(130, 167, 167, 0.827);
 }
 
 hr {
@@ -41,20 +46,33 @@ hr {
 #local-results {
   font-weight: bold;
 }
+
 #state-select {
   margin: 1.5%;
-  margin-left: 13%;
+  width: 200px;
+  height: 40px;
 }
 
 #search-input {
-  margin-top: 2%;
-  padding-left: 47%;
+  margin-top: 5%;
+  margin-left: 37%;
+  width: 200px;
+  height: 40px;
 }
 
 #check {
-  margin-left: 47%;
+  margin-left: 46.5%;
   margin-top: 2%;
   background: lightgrey;
+}
+
+#index-subtitle {
+  margin-left:27%;
+}
+
+#index-title {
+  margin-left:32%;
+  margin-top:16%;
 }
 
 #good {
