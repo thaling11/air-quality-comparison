@@ -2,17 +2,7 @@
 var airQualityAPIkey = "4929c896-1465-4dd5-927c-6506a0034f03";
 //buttons
 let search = document.querySelector("#check");
-let hospitalFinder = document.querySelector("#find");
-//hospital data inputs
-let nameOne = document.querySelector(".name1");
-let distanceOne = document.querySelector(".distance1")
-let contactOne = document.querySelector(".contact1");
-let nameTwo = document.querySelector(".name2");
-let distanceTwo = document.querySelector(".distance2")
-let contactTwo = document.querySelector(".contact2");
-let nameThree = document.querySelector(".name3");
-let distanceThree = document.querySelector(".distance3")
-let contactThree = document.querySelector(".contact3");
+
 //location data
 let lat1;
 let lon1;
@@ -33,14 +23,12 @@ function getGeolocation() {
             lat1 = position.coords.latitude;
             lon1 = position.coords.longitude;
         });
-
-    }
-   
-    
+    } 
 };
 
 getGeolocation();
 
+// API fetch for searched air quality data
 function getAirQuality() {
     let requestUrl = `http://api.airvisual.com/v2/city?city=${cityName}&state=${stateInput}&country=USA&key=${airQualityAPIkey}`;
     
@@ -55,7 +43,7 @@ function getAirQuality() {
     return;
 };
 
-// store air quality in local storage
+// store searched air quality in local storage
 function storeAir(data) {
     let aqius = data.data.current.pollution.aqius;
     let mainus = data.data.current.pollution.mainus;
@@ -72,11 +60,11 @@ function storeAir(data) {
     localStorage.setItem("searchedCity", JSON.stringify(currentCityScore));
     getGreenhouseInfo();
     getGreenhouseInfoLocal();
-    // window.location.href = "./results.html";
+    
 };
 
 
-//get nearest city data 
+//API fetch for local air quality data
 function getLocalAir(){
     
     let localURL = `http://api.airvisual.com/v2/nearest_city?key=${airQualityAPIkey}`;
@@ -108,7 +96,7 @@ function storeLocalAir(data2) {
     localStorage.setItem("localCity", JSON.stringify(currentCityScore)); 
 };
 
-
+// API fetch for searched greenhouse gas data
 function getGreenhouseInfo() {
     console.log(lat2);
     console.log(lon2);
@@ -123,11 +111,31 @@ function getGreenhouseInfo() {
         return response.json()
     }).then(function(data) {
         console.log(data);
-
+        storeSearchedGas(data);
         return (data);
     })
+   
 };
 
+// store Greenhouse searched Data
+function storeSearchedGas(data){
+    let co2Searched = data.data[0].co2.value;
+    let ozoneSearched = data.data[0].ozone.value;
+    let ch4Searched = data.data[0].ch4.value;
+    let waterVaporSearched = data.data[0].water_vapor.value;
+
+    let searchedGas = {
+        co2: co2Searched,
+        ozone: ozoneSearched,
+        ch4: ch4Searched,
+        water_vapor: waterVaporSearched
+    }
+    localStorage.setItem("searchedGreenhouse", JSON.stringify(searchedGas));
+    // Change html after data is saved
+    // window.location.href = "./results.html";
+};
+
+// API for local greenhouse gas data
 function getGreenhouseInfoLocal() {
     console.log(lat1);
     console.log(lon1);
@@ -142,13 +150,29 @@ function getGreenhouseInfoLocal() {
         return response.json()
     }).then(function(data) {
         console.log(data);
-
+        storeLocalGas(data);
         return (data);
     })
 };
 
+// store loca greenhouse data to local storage
+function storeLocalGas(data){
+    let co2Searched = data.data[0].co2.value;
+    let ozoneSearched = data.data[0].ozone.value;
+    let ch4Searched = data.data[0].ch4.value;
+    let waterVaporSearched = data.data[0].water_vapor.value;
 
-// event listener on search button
+    let localGas = {
+        co2: co2Searched,
+        ozone: ozoneSearched,
+        ch4: ch4Searched,
+        water_vapor: waterVaporSearched
+    }
+    localStorage.setItem("localGreenhouse", JSON.stringify(localGas));
+}
+
+
+// event listener on search button starts function calls
 search.addEventListener("click", function(event) {
     cityName = document.querySelector("#search-input").value
     e = document.querySelector("#state-select");
