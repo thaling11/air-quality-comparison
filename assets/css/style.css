@@ -128,46 +128,57 @@ footer {
 
 #good {
   color: green;
+  font-weight: bold;
 }
 
 #moderate {
   color: yellow;
+  font-weight: bold;
 }
 
 #sensitive {
   color: rgb(217, 145, 10);
+  font-weight: bold;
 }
 
 #unhealthy {
   color: orangered;
+  font-weight: bold;
 }
 
 #very-unhealthy {
   color: rgb(143, 8, 66);
+  font-weight: bold;
 }
 
 #hazardous {
   color: rgb(90, 7, 43);
+  font-weight: bold;
 }
 
 #green {
   color: green;
+  font-weight: bold;
 }
 
 #orange {
   color: orange;
+  font-weight: bold;
 }
 
 #mid-orange {
   color: rgb(218, 123, 16);
+  font-weight: bold;
 }
 
 #dark-orange {
   color: rgb(177, 97, 6);
+  font-weight: bold;
 }
 
 #red {
-  color: red
+  color: red;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 576px) {
