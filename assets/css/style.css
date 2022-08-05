@@ -1,7 +1,11 @@
-html,
-body {
+.html-results{
+  height: auto;
+}
+
+.html-index{
   height: 100%;
 }
+
 body {
   background-color: rgba(130, 167, 167, 0.827);
 }
@@ -11,6 +15,7 @@ hr {
 }
 
 .index-body {
+  height: 100%;
   background-color: rgba(130, 167, 167, 0.827);
   background-image: url(../img/Fanhe_Town_10_day_interval_contrast.png);
   background-size: contain;
@@ -85,44 +90,55 @@ hr {
 
 #good {
   color: green;
+  font-weight: bold;
 }
 
 #moderate {
   color: yellow;
+  font-weight: bold;
 }
 
 #sensitive {
   color: rgb(217, 145, 10);
+  font-weight: bold;
 }
 
 #unhealthy {
   color: orangered;
+  font-weight: bold;
 }
 
 #very-unhealthy {
   color: rgb(143, 8, 66);
+  font-weight: bold;
 }
 
 #hazardous {
   color: rgb(90, 7, 43);
+  font-weight: bold;
 }
 
 #green {
   color: green;
+  font-weight: bold;
 }
 
 #orange {
   color: orange;
+  font-weight: bold;
 }
 
 #mid-orange {
   color: rgb(218, 123, 16);
+  font-weight: bold;
 }
 
 #dark-orange {
   color: rgb(177, 97, 6);
+  font-weight: bold;
 }
 
 #red {
-  color: red
+  color: red;
+  font-weight: bold;
 }
