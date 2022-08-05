@@ -7,10 +7,13 @@ body {
   max-height: 100%;
 }
 
+html { 
+  background-color: rgba(130, 167, 167, 0.827);
+  height: 100%;
+}
 hr {
   background-color: rgba(0, 0, 0, 0.378);
 }
-
 footer {
   display: flex;
   justify-content: center;
