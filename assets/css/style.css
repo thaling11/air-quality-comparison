@@ -1,9 +1,7 @@
-html,
-body {
-  height: 100%;
-}
-body {
+body,
+html { 
   background-color: rgba(130, 167, 167, 0.827);
+  height: 100%;
 }
 
 hr {
@@ -16,7 +14,6 @@ hr {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(130, 167, 167, 0.827);
 }
 
 #home{
