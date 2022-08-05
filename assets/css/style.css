@@ -1,32 +1,50 @@
-.html-results{
-  height: auto;
-}
-
-.html-index{
-  height: 100%;
+html {
+  max-height: 100%;
 }
 
 body {
   background-color: rgba(130, 167, 167, 0.827);
+  max-height: 100%;
 }
 
+html { 
+  background-color: rgba(130, 167, 167, 0.827);
+  height: 100%;
+}
 hr {
   background-color: rgba(0, 0, 0, 0.378);
 }
+footer {
+  display: flex;
+  justify-content: center;
+}
+.index-html {
+  height: 100%;
+}
+
+.html-results {
+  height: auto;
+}
 
 .index-body {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background-color: rgba(130, 167, 167, 0.827);
   background-image: url(../img/Fanhe_Town_10_day_interval_contrast.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(130, 167, 167, 0.827);
 }
 
-#home{
-  margin-left: 90%;
-  margin-top:2%;
+.section {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-air {
+  padding-bottom: 4%;
 }
 
 .hide {
@@ -50,6 +68,17 @@ hr {
 
 .subtitle {
   text-decoration: underline;
+
+}
+
+#sticky-footer {
+  position: absolute;
+  bottom: 0;
+}
+
+#home{
+  margin-left: 90%;
+  margin-top:2%;
 }
 
 #air-results {
@@ -60,15 +89,24 @@ hr {
   font-weight: bold;
 }
 
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 #state-select {
-  margin: 1.5%;
+  display: flex;
+  justify-content: center;
   width: 200px;
   height: 40px;
+  margin-left: 2px;
 }
 
 #search-input {
-  margin-top: 5%;
-  margin-left: 37%;
+  display: flex;
+  justify-content: center;
+  margin-right: 2px;
   width: 200px;
   height: 40px;
 }
@@ -85,7 +123,7 @@ hr {
 
 #index-title {
   margin-left:32%;
-  margin-top:16%;
+  margin-top:10%;
 }
 
 #good {
@@ -142,3 +180,91 @@ hr {
   color: red;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 576px) {
+  .index-body {
+    background-position: 0, center ;
+  }
+
+  #search-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 0;
+    padding: 0;
+  }
+  #state-select {
+    margin-bottom: 0;
+    margin-top: 50px;
+  }
+
+  .section {
+    display: flex;
+    /* margin-top: 120px; */
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  #index-subtitle {
+  margin: auto;
+}
+
+#index-title {
+  margin: auto;
+}
+
+#check {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+}
+
+@media only screen and (max-width: 768px) {
+  .index-body {
+    background-position: 0, center ;
+  }
+
+  #search-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 0;
+    padding: 0;
+  }
+  #state-select {
+    margin-bottom: 0;
+    margin-top: 50px;
+  }
+
+  .section {
+    display: flex;
+    /* margin-top: 120px; */
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  #index-subtitle {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#index-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-left: 0;
+}
+
+#check {
+  display: flex;
+  justify-content: center;
+  margin: 50px 200px;
+}
+}
+
