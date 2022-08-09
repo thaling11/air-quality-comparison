@@ -20,7 +20,7 @@ Air Quality Comparison is a user friendly application for relavant air quality d
 ![air-quality-home-page](./assets/img/air-quality-home-page.jpg)
 
 #### Results Page: 
-![air-quality-results-page](./assets/img/results-screenshot-final.jpg)
+![air-quality-results-page](./assets/img/results-screenshot-final.png)
 
 ### Direction for Future Development:
 - Create an interactive map feature to show geographical data that impacts air quality including wildfire locations, pollen count, and ground-level ozone
