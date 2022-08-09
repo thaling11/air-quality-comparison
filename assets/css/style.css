@@ -37,6 +37,13 @@ footer {
   background-position: center;
 }
 
+.results-body{
+  background-image: url(../img/pollution-facts.png);
+  background-repeat: no-repeat;
+  background-position: right top 40%;
+  background-size: 50%;
+}
+
 .section {
   flex-wrap: wrap;
   justify-content: center;
@@ -225,6 +232,10 @@ footer {
 @media only screen and (max-width: 768px) {
   .index-body {
     background-position: 0, center ;
+  }
+
+  .results-body{
+    background-image: url();
   }
 
   #search-input {
