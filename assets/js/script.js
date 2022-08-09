@@ -17,9 +17,7 @@ let airQualityConditions = document.querySelector("#air-q");
 //use Geolocation API to get user location on entering site
 function getGeolocation() {
     if (navigator.geolocation) {
-        console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(function(position){
-            console.log(position);
             lat1 = position.coords.latitude;
             lon1 = position.coords.longitude;
         });
@@ -37,7 +35,6 @@ function getAirQuality() {
         return response.json()
     }).then(function(data) {
         storeAir(data);
-        console.log(data);
         return (data);       
     })
     return;
@@ -73,7 +70,6 @@ function getLocalAir(){
     .then(function(response) {
         return response.json()
     }).then(function(data2) {
-        console.log(data2);
         storeLocalAir(data2);
         return (data2);
     })
@@ -98,8 +94,6 @@ function storeLocalAir(data2) {
 
 // API fetch for searched greenhouse gas data
 function getGreenhouseInfo() {
-    console.log(lat2);
-    console.log(lon2);
     fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat2}&lng=${lon2}`, {
         "method": "GET",
         "headers": {
@@ -110,7 +104,6 @@ function getGreenhouseInfo() {
     .then(function(response) {
         return response.json()
     }).then(function(data) {
-        console.log(data);
         storeSearchedGas(data);
         return (data);
     })  
@@ -136,8 +129,6 @@ function storeSearchedGas(data){
 
 // API for local greenhouse gas data
 function getGreenhouseInfoLocal() {
-    console.log(lat1);
-    console.log(lon1);
     fetch (`https://api.ambeedata.com/ghg/latest/by-lat-lng?lat=${lat1}&lng=${lon1}`, {
         "method": "GET",
         "headers": {
@@ -148,7 +139,6 @@ function getGreenhouseInfoLocal() {
     .then(function(response) {
         return response.json()
     }).then(function(data) {
-        console.log(data);
         storeLocalGas(data);
         return (data);
     })
