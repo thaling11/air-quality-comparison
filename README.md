@@ -3,6 +3,8 @@
 ## Description:
 
 Air Quality Comparison is a user friendly application for relavant air quality data in specific locations. It allows the user to make a direct comparsion of their current location to another city of their choice. The data includes Air Quality Index (AQI) and greenhouse gases, including carbon dioxide, water vapor, methane, and ozone. The application also provides the normal range values of the environmental factors. The goal is to provide useful information to those who are concerned or curious about their air quality. 
+<br>
+Link to deployed application: https://thaling11.github.io/air-quality-comparison/
 
 ### How to Use:
 - Allow application to use your location by clicking "Allow" in the pop-up box
